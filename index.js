@@ -13,6 +13,7 @@ const app=express();
 const authRoutes=require('./routes/auth.routes');
 
 const userRoutes=require('./routes/user.routes');
+const leadRoutes=require('./routes/leads.routes');
 
 
 
@@ -22,8 +23,9 @@ db();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-   origin: 'http://localhost:3000',
-   credentials:true
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST','DELETE','PUT']
+   
 }
 ));
 app.use(express.urlencoded({ extended: true }));
@@ -35,6 +37,8 @@ app.get('/',(req,res)=>{
 app.use('/api',authRoutes);
 
 app.use('/api',userRoutes);
+
+app.use('/api',leadRoutes);
 
 
 

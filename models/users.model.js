@@ -11,10 +11,7 @@ const userSchema= mongoose.Schema({
         unique:true,
         trim:true
     },
-    hashedPassword:{
-        type:String,
-        required:true
-    },
+    
     mobileNumber:{
         type:String,
         required:true,
@@ -26,6 +23,10 @@ const userSchema= mongoose.Schema({
         type: String,
         enum: ['user', 'manager', 'admin'],
         default: 'user',
+    },
+    hashedPassword:{
+        type:String,
+        required:true
     }
 },{timestamps:true});
 
